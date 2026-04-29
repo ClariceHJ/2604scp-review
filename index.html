@@ -100,12 +100,12 @@
   
 
   <div class="tabs">
-    <button class="tab active" onclick="st('slow')">슬로우베드</button>
-    <button class="tab" onclick="st('mat')">매트리스 통합</button>
+    <button class="tab" onclick="st('slow')">슬로우베드</button>
+    <button class="tab active" onclick="st('mat')">매트리스 통합</button>
   </div>
 
   <!-- ===== 슬로우베드 ===== -->
-  <div class="panel active" id="panel-slow">
+  <div class="panel" id="panel-slow">
 
     <div class="section">
       <div class="sec-title">① 공급처별 오차 내역</div>
@@ -294,7 +294,7 @@
   </div>
 
   <!-- ===== 매트리스 통합 ===== -->
-  <div class="panel" id="panel-mat">
+  <div class="panel active" id="panel-mat">
 
     <div class="section">
       <div class="sec-title">④ 금액 기준</div>
@@ -520,6 +520,9 @@ function saveHTML() {
   clone.querySelectorAll('[contenteditable]').forEach(el => { el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck'); });
   clone.querySelector('.toolbar')?.remove();
   clone.querySelector('.edit-hint')?.remove();
+  // 열린 인사이트 패널 전부 닫기
+  clone.querySelectorAll('.ins-body.open').forEach(el => el.classList.remove('open'));
+  clone.querySelectorAll('.arrow').forEach(el => { if(el.textContent==='▲') el.textContent='▼'; });
   // 슬로우베드 탭을 항상 디폴트로 저장
   clone.querySelectorAll('.tab').forEach((t,i) => { t.classList.toggle('active', i===0); });
   clone.querySelectorAll('.panel').forEach((p,i) => { p.classList.toggle('active', i===0); });
