@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>4월 SCP 리뷰</title>
@@ -98,15 +97,15 @@
 <div class="wrap">
   <div class="page-title">4월 SCP 리뷰</div>
   <div class="page-sub">금액 기준, 백만 단위 · 재고회전율 = 매출실적 ÷ 기말재고실적 · O등급은 예측 오차 산정에서 제외 · 기말재고달성률 = 실적/예측 (낮을수록 재고 감소)</div>
-  <div class="edit-hint">✏️ 텍스트를 클릭하면 <span>직접 수정</span> 가능합니다. 수정 후 우측 하단 <strong>저장</strong> 버튼을 눌러 HTML로 다운로드하세요.</div>
+  
 
   <div class="tabs">
-    <button class="tab active" onclick="st('slow')">슬로우베드</button>
-    <button class="tab" onclick="st('mat')">매트리스 통합</button>
+    <button class="tab" onclick="st('slow')">슬로우베드</button>
+    <button class="tab active" onclick="st('mat')">매트리스 통합</button>
   </div>
 
   <!-- ===== 슬로우베드 ===== -->
-  <div class="panel active" id="panel-slow">
+  <div class="panel" id="panel-slow">
 
     <div class="section">
       <div class="sec-title">① 공급처별 오차 내역</div>
@@ -134,7 +133,7 @@
         </div>
       </div>
       <table>
-        <tr>
+        <tbody><tr>
           <th class="left" rowspan="2">공급처</th>
           <th class="h-sales" colspan="3">매출</th>
           <th class="h-supply" colspan="3">공급</th>
@@ -154,7 +153,7 @@
           <td>724</td><td>567</td><td><span class="rate red">78.3%</span></td>
           <td>546</td><td>522</td><td><span class="rate green">95.8%</span></td>
           <td>1.23</td><td class="red">-0.09</td>
-          <td class="left">매출·공급 동반 부진. 그라운드 토퍼 계열 달성률 급락</td>
+          <td class="left">매출 저하로 공급 축소. 그라운드 토퍼 차질↑</td>
         </tr>
         <tr>
           <td class="left"><strong>충주목제</strong></td>
@@ -170,7 +169,7 @@
           <td>132</td><td>133</td><td><span class="rate">100.7%</span></td>
           <td>328</td><td>303</td><td><span class="rate green">92.4%</span></td>
           <td>0.45</td><td class="green">+0.12</td>
-          <td class="left">매출 초과 달성. 프레임 부속 재고(197)로 구조적 회전율 낮음</td>
+          <td class="left">매출 초과 달성. 충주목제 이관 반영으로 재고 감소</td>
         </tr>
         <tr>
           <td class="left"><strong>안성철제</strong></td>
@@ -187,19 +186,19 @@
           <td>973</td><td>941</td><td><span class="rate green">96.7%</span></td>
           <td>0.94</td><td>-0.00</td><td></td>
         </tr>
-      </table>
-      <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-r">주의</span><span class="ins-title">충주목제 — 공급 41(예측 25), 기말재고 66(예측 53)</span><span class="ins-metric red arrow">▼</span></div><div class="ins-body">공급달성 164.2%로 전 공급처 최고. 충주목제 이관 반영으로 기말재고가 예측의 1.25배로 증가. 회전율 0.56.<div class="evidence"><strong>품목별 근거</strong> — 버치 베이스 SS(공급예측 0원→실적 4.7)·아몬드 저상형 바닥판 계열이 예측 없이 공급 투입.</div></div></div>
+      </tbody></table>
+      <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-r">주의</span><span class="ins-title">충주목제 — 공급 41(예측 25), 기말재고 66(예측 53)</span><span class="ins-metric red arrow">▼</span></div><div class="ins-body">공급달성 164.2%로 전 공급처 최고. 충주목제 이관 반영으로 기말재고가 예측의 1.25배로 증가. 회전율 0.56.<div class="evidence"><strong>품목별 근거</strong> — 버치 베이스 SS(공급예측 0원→실적 4.7)·아몬드 저상형 바닥판 초도물량 입고</div></div></div>
       <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-a">관찰</span><span class="ins-title">일룸상품 — 매출 137(예측 109) 초과, 그러나 재고 303으로 회전율 0.45 최저</span><span class="ins-metric amber arrow">▼</span></div><div class="ins-body">기말재고는 예측보다 줄었으나 절대 재고 규모(303)가 커서 회전율은 전 공급처 최저.<div class="evidence"><strong>품목별 근거</strong> — 일룸상품 223품목 중 프레임 169개가 매출 62 대비 재고 197. 프레임 부속 단위 품목들의 재고가 회전율을 구조적으로 낮추는 요인.</div></div></div>
     </div>
 
     <div class="section">
       <div class="sec-title">② 품목군별 오차 내역</div>
       <div class="row2" style="margin-bottom:16px;">
-        <div><div class="legend"><span class="leg"><span class="leg-sq" style="background:#378ADD;"></span>매출달성률</span><span class="leg"><span class="leg-sq" style="background:#E24B4A;"></span>공급달성률</span></div><div class="chart-wrap" style="height:200px"><canvas id="pj-sales"></canvas></div></div>
-        <div><div class="legend"><span class="leg"><span class="leg-sq" style="background:#5DCAA5;"></span>재고회전율 목표비 (양수=상회)</span></div><div class="chart-wrap" style="height:200px"><canvas id="pj-turn"></canvas></div></div>
+        <div><div class="legend"><span class="leg"><span class="leg-sq" style="background:#378ADD;"></span>매출달성률</span><span class="leg"><span class="leg-sq" style="background:#E24B4A;"></span>공급달성률</span></div><div class="chart-wrap" style="height:200px"><canvas id="pj-sales" width="668" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 668px;"></canvas></div></div>
+        <div><div class="legend"><span class="leg"><span class="leg-sq" style="background:#5DCAA5;"></span>재고회전율 목표비 (양수=상회)</span></div><div class="chart-wrap" style="height:200px"><canvas id="pj-turn" width="668" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 668px;"></canvas></div></div>
       </div>
       <table>
-        <tr>
+        <tbody><tr>
           <th class="left" rowspan="2">품목군</th>
           <th class="h-sales" colspan="3">매출</th>
           <th class="h-supply" colspan="3">공급</th>
@@ -219,7 +218,7 @@
           <td>241</td><td>188</td><td><span class="rate red">78.2%</span></td>
           <td>226</td><td>212</td><td><span class="rate green">93.8%</span></td>
           <td>1.09</td><td class="red">-0.09</td>
-          <td class="left">딥플로우 오차율 53%(달성 47%)로 최고, 이브닝 절대 미달 23</td>
+          <td class="left"><b>이브닝 출고 감소</b>(K사이즈만 114% 달성)</td>
         </tr>
         <tr>
           <td class="left"><strong>토퍼</strong></td>
@@ -227,7 +226,7 @@
           <td>371</td><td>269</td><td><span class="rate red">72.4%</span></td>
           <td>217</td><td>216</td><td><span class="rate green">99.5%</span></td>
           <td>1.56</td><td class="red">-0.22</td>
-          <td class="left">그라운드 오차율 74%(달성 26%) 집중 부진 / 올라운드 113% 초과 양극화</td>
+          <td class="left">그라운드 달성률 26% / 올라운드 113% 초과 달성 양극화 →&nbsp;<b>삼성 올플밸Q 특판 견인</b></td>
         </tr>
         <tr>
           <td class="left"><strong>모션</strong></td>
@@ -235,7 +234,7 @@
           <td>125</td><td>145</td><td><span class="rate green">115.6%</span></td>
           <td>109</td><td>101</td><td><span class="rate green">92.7%</span></td>
           <td>1.13</td><td class="green">+0.32</td>
-          <td class="left">문레이모션 오차율 28% 초과(달성 128%), 미드나잇모션도 동반 초과</td>
+          <td class="left">문레이, 하프문 모두 예상비 호조로 비축 목표 달성은 어려웠음</td>
         </tr>
         <tr>
           <td class="left"><strong>프레임</strong></td>
@@ -243,7 +242,7 @@
           <td>75</td><td>95</td><td><span class="rate red">126.6%</span></td>
           <td>241</td><td>256</td><td><span class="rate red">106.2%</span></td>
           <td>0.41</td><td>+0.01</td>
-          <td class="left">시나몬 오차율 33% 미달(달성 67%) / 버치·마론 오차율 33% 초과. 버치 400%·아티초크 208% 공급 과잉</td>
+          <td class="left">시나몬 달성률 67% / 버치·마론 133% 초과 달성. 버치 400%·아티초크 208% 공급 과잉(충주)</td>
         </tr>
         <tr>
           <td class="left"><strong>베개</strong></td>
@@ -259,7 +258,7 @@
           <td>43</td><td>37</td><td><span class="rate green">86.0%</span></td>
           <td>87</td><td>87</td><td><span class="rate">100.0%</span></td>
           <td>0.54</td><td class="green">+0.07</td>
-          <td class="left">공통 시리즈 단일 집계, 오차율 15%로 상대적 안정</td>
+          <td class="left">오차율 15%로 상대적 안정, <b>5월부 오프라인 프로모션으로 매출·공급 증가 예상</b></td>
         </tr>
         <tr class="total">
           <td class="left">Total</td>
@@ -268,8 +267,8 @@
           <td>973</td><td>941</td><td><span class="rate green">96.7%</span></td>
           <td>0.94</td><td>-0.00</td><td></td>
         </tr>
-      </table>
-      <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-r">주의</span><span class="ins-title">토퍼 — 매출 336(예측 386), 목표비 -0.22로 전 품목군 최대 하락</span><span class="ins-metric red arrow">▼</span></div><div class="ins-body">매출 50 미달, 공급 102 미달. 기말재고 216으로 예측 수준 유지.<div class="evidence"><strong>품목별 근거</strong> — 그라운드 토퍼 2종 오차율 74%(달성 26%, 기말재고 53) 집중 부진. 올라운드 토퍼 12종은 113% 달성. 동일 품목군 내 시리즈 간 양극화.</div></div></div>
+      </tbody></table>
+      <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-r">주의</span><span class="ins-title">토퍼 — 매출 336(예측 386), 목표비 -0.22로 전 품목군 최대 하락</span><span class="ins-metric red arrow">▲</span></div><div class="ins-body open">매출 50 미달, 공급 102 미달. 기말재고 216으로 예측 수준 유지.<div class="evidence"><strong>품목별 근거</strong> — 그라운드 토퍼 2종 오차율 74%(달성 26%, 기말재고 53) 집중 부진. 올라운드 토퍼 12종은 113% 달성. 동일 품목군 내 시리즈 간 양극화.</div></div></div>
       <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-r">주의</span><span class="ins-title">프레임 — 공급 95(예측 75) 과잉, 기말재고 256(예측 241) 초과</span><span class="ins-metric red arrow">▼</span></div><div class="ins-body">매출은 104(+8) 초과했으나 공급이 20 과잉 투입되어 기말재고 15 초과.<div class="evidence"><strong>품목별 근거</strong> — 버치(공급달성 400%), 아티초크(208%), 아콘(177%), 아몬드(167%) 순 공급 과잉. 시나몬은 달성률 67%·오차율 33% 미달. 마론은 공급달성 37%.</div></div></div>
       <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-g">양호</span><span class="ins-title">모션 — 매출 114(예측 89), 기말재고 101(예측 109)으로 3축 모두 양호</span><span class="ins-metric green arrow">▼</span></div><div class="ins-body">매출·공급 모두 초과하면서 기말재고는 예측보다 8 낮게 마감.<div class="evidence"><strong>품목별 근거</strong> — 문레이모션 오차율 28% 초과(달성 128%), 미드나잇모션도 달성 120%로 동반 초과.</div></div></div>
       <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-g">양호</span><span class="ins-title">베개 — 매출 29(예측 21), 기말재고 25(예측 41)으로 급감</span><span class="ins-metric green arrow">▼</span></div><div class="ins-body">매출이 예측을 크게 초과하면서 기말재고가 예측의 61% 수준으로 급감.<div class="evidence"><strong>품목별 근거</strong> — 머드 오차율 61%(달성 161%), 클라우드 오차율 42%(달성 142%), 퓨어 오차율 29%(달성 129%). 전 시리즈 초과 달성.</div></div></div>
@@ -277,17 +276,17 @@
 
     <div class="section">
       <div class="sec-title">③ 등급별 오차 상세</div>
-      <div class="sec-sub">수량 BIAS — 전등급 과소예측(실적 > 예측)</div>
+      <div class="sec-sub">수량 BIAS — 전등급 과소예측(실적 &gt; 예측)</div>
       <table>
-        <tr><th>등급</th><th>품목수</th><th class="right">금액 예측</th><th class="right">금액 실적</th><th>금액달성률</th><th>수량 BIAS</th><th>수량오차율</th><th>주요 특이사항</th></tr>
+        <tbody><tr><th>등급</th><th>품목수</th><th class="right">금액 예측</th><th class="right">금액 실적</th><th>금액달성률</th><th>수량 BIAS</th><th>수량오차율</th><th>주요 특이사항</th></tr>
         <tr><td><strong>A</strong></td><td>66</td><td class="right">586</td><td class="right">533</td><td><span class="rate red">90.9%</span></td><td class="green">-220 (과소예측)</td><td>31.4%</td><td>금액↓ 수량↑ 역전. 단가 낮은 품목 위주 판매</td></tr>
         <tr><td><strong>B</strong></td><td>97</td><td class="right">186</td><td class="right">195</td><td><span class="rate green">105.1%</span></td><td class="green">-32 (과소예측)</td><td>35.0%</td><td>금액·수량 모두 초과 달성</td></tr>
         <tr class="subtotal"><td>A+B 소계</td><td>163</td><td class="right">772</td><td class="right">728</td><td><span class="rate amber">94.3%</span></td><td class="green">-252</td><td>32.0%</td><td>핵심 품목 오차율 관리 가능 수준</td></tr>
         <tr><td><strong>C</strong></td><td>163</td><td class="right">71</td><td class="right">74</td><td><span class="rate">105.0%</span></td><td class="green">-87 (과소예측)</td><td class="red">79.5%</td><td>수량오차율 최고. 소량 품목 절대 오차 집중</td></tr>
-        <tr><td><strong>N</strong></td><td>27</td><td class="right">36</td><td class="right">42</td><td><span class="rate green">116.5%</span></td><td class="green">-74 (과소예측)</td><td>53.5%</td><td>플렉서블 바운텍스폼 수요 급등 포함</td></tr>
+        <tr><td><strong>N</strong></td><td>27</td><td class="right">36</td><td class="right">42</td><td><span class="rate green">116.5%</span></td><td class="green">-74 (과소예측)</td><td>53.5%</td><td><br></td></tr>
         <tr><td><strong>Z</strong></td><td>53</td><td class="right">15</td><td class="right">19</td><td><span class="rate green">127.6%</span></td><td class="green">-56 (과소예측)</td><td>27.2%</td><td>공급달성 4%. 공급 거의 중단</td></tr>
         <tr class="total"><td>Total</td><td>419</td><td class="right">911</td><td class="right">880</td><td><span class="rate amber">96.6%</span></td><td class="green">-467</td><td>34.8%</td><td></td></tr>
-      </table>
+      </tbody></table>
       <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-a">관찰</span><span class="ins-title">A등급 — 금액 533(예측 586) vs 수량 과소예측 -220개 동시 발생</span><span class="ins-metric amber arrow">▼</span></div><div class="ins-body">수량은 220개 초과 달성, 금액은 53 미달. 단가 낮은 품목 위주 판매 구성.<div class="evidence"><strong>품목별 근거</strong> — 그라운드 토퍼(달성 26%)·딥플로우(달성 47%) 등 고단가 품목 부진 vs 올라운드 토퍼·프레임 부속류(저단가) 수량 초과 주도.</div></div></div>
       <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-r">주의</span><span class="ins-title">C등급 — 금액 74(예측 71) 겉보기 양호, 수량오차율 79.5% 구조적 고오차</span><span class="ins-metric red arrow">▼</span></div><div class="ins-body">금액은 예측을 3 초과했으나 수량오차율 79.5%는 예측 정확도가 매우 낮음을 의미.<div class="evidence"><strong>품목별 근거</strong> — 프레임 C등급 138품목 수량달성 138%(예측 대비 +95개). 단가 낮아 금액 영향 제한적.</div></div></div>
     </div>
@@ -295,7 +294,7 @@
   </div>
 
   <!-- ===== 매트리스 통합 ===== -->
-  <div class="panel" id="panel-mat">
+  <div class="panel active" id="panel-mat">
 
     <div class="section">
       <div class="sec-title">④ 금액 기준</div>
@@ -323,7 +322,7 @@
         </div>
       </div>
       <table>
-        <tr>
+        <tbody><tr>
           <th class="left" rowspan="2">구분</th>
           <th class="h-sales" colspan="3">매출</th>
           <th class="h-supply" colspan="3">공급</th>
@@ -374,7 +373,7 @@
           <td class="right">75</td><td class="right">110</td><td><span class="rate green">148.0%</span></td>
           <td class="right">63</td><td class="right">77</td><td><span class="rate red">122.2%</span></td>
           <td>1.26</td><td class="green">+0.12</td>
-          <td class="left">수요 초과 달성. 공급도 과잉 투입되어 기말재고 증가</td>
+          <td class="left">수요 초과 달성. 공급도 과잉 투입(헤이븐 SS)되어 기말재고 증가</td>
         </tr>
         <tr>
           <td class="left">일룸 스프링</td>
@@ -390,7 +389,7 @@
           <td class="right">35</td><td class="right">22</td><td><span class="rate red">63.6%</span></td>
           <td class="right">32</td><td class="right">15</td><td><span class="rate green">45.8%</span></td>
           <td>0.85</td><td class="green">+0.56</td>
-          <td class="left">수요 급등으로 기말재고 예측 대비 54% 감소</td>
+          <td class="left"><b>헤이븐 스프링 사양 생산 지연</b></td>
         </tr>
         <tr class="subtotal">
           <td class="left">일룸 소계</td>
@@ -406,10 +405,10 @@
           <td class="right">1,410</td><td class="right">1,645</td><td><span class="rate red">116.7%</span></td>
           <td>1.28</td><td class="red">-0.48</td><td></td>
         </tr>
-      </table>
-      <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-r">핵심</span><span class="ins-title">헤이븐(일룸 스프링) — 매출 283(예측 675), 기말재고 486으로 전체 부진 주도</span><span class="ins-metric red arrow">▼</span></div><div class="ins-body">매출 392 미달. 기말재고 486은 전체 기말재고(1,645)의 29%를 단일 시리즈가 차지. 회전율 0.58.<div class="evidence"><strong>품목별 근거</strong> — 코코(63%)·데일리라이트(70%)·데일리(77%)도 목표 미달. 반면 플렉서블(236%)·플렉서블 스프링(176%)은 수요 급등.</div></div></div>
+      </tbody></table>
+      <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-r">핵심</span><span class="ins-title">헤이븐(일룸 스프링) — 매출 470(예측 662), 기말재고 498으로 전체 부진 주도</span><span class="ins-metric red arrow">▲</span></div><div class="ins-body open">매출 192 미달. 기말재고 498은 전체 기말재고(1,645)의 29%를 단일 시리즈가 차지. 회전율 0.94<div class="evidence"><strong>품목별 근거</strong> — 코코(63%)·데일리라이트(70%)·데일리(77%)도 목표 미달. 반면 플렉서블(236%)·플렉서블 스프링(176%)은 수요 급등.</div></div></div>
       <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-g">양호</span><span class="ins-title">플렉서블 — 매출 130(예측 55), 재고회전율 2.29로 전 시리즈 최고</span><span class="ins-metric green arrow">▼</span></div><div class="ins-body">매출 75 초과. 매출이 급등했음에도 기말재고가 예측을 소폭 초과 — 5월 공급 추종 검토 필요.<div class="evidence"><strong>품목별 근거</strong> — 바운텍스폼 SS(예측 25개→78개)·Q(3개→17개)·S(6개→18개) 전 사이즈 급등.</div></div></div>
-      <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-g">양호</span><span class="ins-title">일룸 모션 — 매출 12(예측 9), 기말재고 15(예측 32)으로 3축 최우수</span><span class="ins-metric green arrow">▼</span></div><div class="ins-body">수요가 크게 초과하면서 기말재고가 예측의 절반 이하로 감소. 매출·공급·재고 3축 중 가장 균형 잡힌 초과 패턴.<div class="evidence"><strong>품목별 근거</strong> — 문레이모션·오리지널모션 계열 견인. 슬로우베드 모션 126%, 일룸 모션 132% 동반 초과.</div></div></div>
+      <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-g">양호</span><span class="ins-title">XXX</span><span class="ins-metric green arrow">▼</span></div><div class="ins-body">수요가 크게 초과하면서 기말재고가 예측의 절반 이하로 감소. 매출·공급·재고 3축 중 가장 균형 잡힌 초과 패턴.<div class="evidence"><strong>품목별 근거</strong> — 문레이모션·오리지널모션 계열 견인. 슬로우베드 모션 126%, 일룸 모션 132% 동반 초과.</div></div></div>
     </div>
 
     <div class="section">
@@ -437,95 +436,21 @@
         </div>
       </div>
       <table>
-        <tr><th>구분</th><th>매출달성률</th><th>재고회전율</th><th>목표비</th></tr>
+        <tbody><tr><th>구분</th><th>매출달성률</th><th>재고회전율</th><th>목표비</th></tr>
         <tr><td>폼 Total</td><td><span class="rate red">93.8%</span></td><td>1.38</td><td class="red">-0.22</td></tr>
         <tr><td>스프링 Total</td><td><span class="rate red">84.4%</span></td><td>1.42</td><td class="red">-0.67</td></tr>
         <tr><td>모션 Total</td><td><span class="rate green">126.8%</span></td><td>0.84</td><td class="green">+0.37</td></tr>
         <tr class="total"><td>Grand Total</td><td><span class="rate red">87.3%</span></td><td>1.41</td><td class="red">-0.50</td></tr>
-      </table>
+      </tbody></table>
       <div class="ins"><div class="ins-head" onclick="tog(this)"><span class="ins-cat cat-a">관찰</span><span class="ins-title">수량 기준 목표비(-0.50)가 금액 기준(-0.48)보다 부진폭 더 큼</span><span class="ins-metric amber arrow">▼</span></div><div class="ins-body">단가 높은 품목보다 수량 기준 부진폭이 더 크다는 의미. 일룸 스프링 수량달성 83%(목표비 -0.84)로 수량 기준 최대 하락.<div class="evidence"><strong>품목별 근거</strong> — 헤이븐이 수량 기준에서도 42% 달성으로 핵심 원인. 플렉서블은 수량 기준도 236%.</div></div></div>
     </div>
 
   </div>
 </div>
 
-<div class="toolbar">
-  <button class="btn-reset" onclick="resetAll()">초기화</button>
-  <button class="btn-save" onclick="saveHTML()">💾 저장 (HTML 다운로드)</button>
-</div>
 
-<script>
-function st(id) {
-  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['slow','mat'][i]===id));
-  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id==='panel-'+id));
-}
-function tog(el) {
-  const body = el.parentElement.querySelector('.ins-body');
-  const arrow = el.querySelector('.arrow');
-  body.classList.toggle('open');
-  arrow.textContent = body.classList.contains('open') ? '▲' : '▼';
-}
 
-const tc = '#666', gc = 'rgba(0,0,0,0.06)';
-const sC='#378ADD', supC='#E24B4A', tC='#5DCAA5';
 
-const refLine = { id:'ref', afterDraw(c) {
-  const {ctx,chartArea:{left,right},scales:{y}} = c; if(!y) return;
-  const py = y.getPixelForValue(1);
-  ctx.save(); ctx.beginPath(); ctx.setLineDash([4,4]);
-  ctx.strokeStyle='#ccc'; ctx.lineWidth=1;
-  ctx.moveTo(left,py); ctx.lineTo(right,py); ctx.stroke(); ctx.restore();
-}};
 
-new Chart('pj-sales', { type:'bar', data:{ labels:['매트리스','토퍼','모션','프레임','베개','커버'],
-  datasets:[
-    { label:'매출달성률', data:[0.864,0.869,1.279,1.082,1.404,1.154], backgroundColor:sC, borderRadius:3 },
-    { label:'공급달성률', data:[0.782,0.724,1.156,1.266,0.759,0.860], backgroundColor:supC, borderRadius:3 }
-  ]}, options:{ responsive:true, maintainAspectRatio:false,
-    plugins:{ legend:{display:false}, tooltip:{mode:'index',callbacks:{label:ctx=>' '+ctx.dataset.label+': '+(ctx.parsed.y*100).toFixed(1)+'%'}} },
-    scales:{ x:{ticks:{color:tc,font:{size:11}},grid:{color:gc}}, y:{ticks:{color:tc,font:{size:11},callback:v=>(v*100).toFixed(0)+'%'},grid:{color:gc},beginAtZero:true} }
-  }, plugins:[refLine] });
 
-new Chart('pj-turn', { type:'bar', data:{ labels:['매트리스','토퍼','모션','프레임','베개','커버','기타'],
-  datasets:[{ label:'회전율 목표비', data:[-0.09,-0.22,0.32,0.01,0.65,0.07,0.22],
-    backgroundColor:[-0.09,-0.22,0.32,0.01,0.65,0.07,0.22].map(v=>v>=0?tC:supC), borderRadius:3 }]
-  }, options:{ responsive:true, maintainAspectRatio:false,
-    plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>' 목표비: '+ctx.parsed.y.toFixed(2)}} },
-    scales:{ x:{ticks:{color:tc,font:{size:11}},grid:{color:gc}}, y:{ticks:{color:tc,font:{size:11}},grid:{color:gc}} }
-  }});
-
-const EDITABLE = ['.ins-title','.ins-body','.evidence','.kpi-label','.kpi-main','.kpi-arrow','.kpi-rate','.kpi-note','.sec-sub','.page-sub','td','th'];
-const originals = new Map();
-
-function saveOriginals() {
-  EDITABLE.forEach(sel => document.querySelectorAll(sel).forEach(el => originals.set(el, el.innerHTML)));
-}
-function applyEditable() {
-  EDITABLE.forEach(sel => document.querySelectorAll(sel).forEach(el => {
-    el.setAttribute('contenteditable','true');
-    el.setAttribute('spellcheck','false');
-  }));
-}
-function resetAll() {
-  if (!confirm('모든 수정 내용을 초기화할까요?')) return;
-  originals.forEach((html, el) => { el.innerHTML = html; });
-}
-function saveHTML() {
-  const clone = document.documentElement.cloneNode(true);
-  clone.querySelectorAll('[contenteditable]').forEach(el => { el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck'); });
-  clone.querySelector('.toolbar')?.remove();
-  clone.querySelector('.edit-hint')?.remove();
-  const scripts = clone.querySelectorAll('script');
-  scripts[scripts.length-1]?.remove();
-  const blob = new Blob(['<!DOCTYPE html>\n'+clone.outerHTML], {type:'text/html;charset=utf-8'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = '4월_SCP_리뷰_수정본.html';
-  a.click();
-}
-
-saveOriginals();
-applyEditable();
-</script>
-</body>
-</html>
+</body></html>
