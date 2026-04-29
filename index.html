@@ -100,12 +100,12 @@
   
 
   <div class="tabs">
-    <button class="tab" onclick="st('slow')">슬로우베드</button>
-    <button class="tab active" onclick="st('mat')">매트리스 통합</button>
+    <button class="tab active" onclick="st('slow')">슬로우베드</button>
+    <button class="tab" onclick="st('mat')">매트리스 통합</button>
   </div>
 
   <!-- ===== 슬로우베드 ===== -->
-  <div class="panel" id="panel-slow">
+  <div class="panel active" id="panel-slow">
 
     <div class="section">
       <div class="sec-title">① 공급처별 오차 내역</div>
@@ -294,7 +294,7 @@
   </div>
 
   <!-- ===== 매트리스 통합 ===== -->
-  <div class="panel active" id="panel-mat">
+  <div class="panel" id="panel-mat">
 
     <div class="section">
       <div class="sec-title">④ 금액 기준</div>
@@ -499,7 +499,6 @@ new Chart('pj-turn', { type:'bar', data:{ labels:['매트리스','토퍼','모�
     scales:{ x:{ticks:{color:tc,font:{size:11}},grid:{color:gc}}, y:{ticks:{color:tc,font:{size:11}},grid:{color:gc}} }
   }});
 
-// 편집 기능
 const EDITABLE = ['.ins-title','.ins-body','.evidence','.kpi-label','.kpi-main','.kpi-arrow','.kpi-rate','.kpi-note','.sec-sub','.page-sub','td','th'];
 const originals = new Map();
 
@@ -521,7 +520,9 @@ function saveHTML() {
   clone.querySelectorAll('[contenteditable]').forEach(el => { el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck'); });
   clone.querySelector('.toolbar')?.remove();
   clone.querySelector('.edit-hint')?.remove();
-  // 편집 스크립트 블록만 제거 (마지막 script)
+  // 슬로우베드 탭을 항상 디폴트로 저장
+  clone.querySelectorAll('.tab').forEach((t,i) => { t.classList.toggle('active', i===0); });
+  clone.querySelectorAll('.panel').forEach((p,i) => { p.classList.toggle('active', i===0); });
   const scripts = clone.querySelectorAll('script:not([src])');
   scripts[scripts.length-1]?.remove();
   const blob = new Blob(['<!DOCTYPE html>\n'+clone.outerHTML], {type:'text/html;charset=utf-8'});
