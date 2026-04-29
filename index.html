@@ -453,4 +453,86 @@
 
 
 
+
+<div class="toolbar">
+  <button class="btn-reset" onclick="resetAll()">초기화</button>
+  <button class="btn-save" onclick="saveHTML()">💾 저장 (HTML 다운로드)</button>
+</div>
+
+<script>
+function st(id) {
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['slow','mat'][i]===id));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id==='panel-'+id));
+}
+function tog(el) {
+  const body = el.parentElement.querySelector('.ins-body');
+  const arrow = el.querySelector('.arrow');
+  body.classList.toggle('open');
+  arrow.textContent = body.classList.contains('open') ? '▲' : '▼';
+}
+
+const tc = '#666', gc = 'rgba(0,0,0,0.06)';
+const sC='#378ADD', supC='#E24B4A', tC='#5DCAA5';
+
+const refLine = { id:'ref', afterDraw(c) {
+  const {ctx,chartArea:{left,right},scales:{y}} = c; if(!y) return;
+  const py = y.getPixelForValue(1);
+  ctx.save(); ctx.beginPath(); ctx.setLineDash([4,4]);
+  ctx.strokeStyle='#ccc'; ctx.lineWidth=1;
+  ctx.moveTo(left,py); ctx.lineTo(right,py); ctx.stroke(); ctx.restore();
+}};
+
+new Chart('pj-sales', { type:'bar', data:{ labels:['매트리스','토퍼','모션','프레임','베개','커버'],
+  datasets:[
+    { label:'매출달성률', data:[0.864,0.869,1.279,1.082,1.404,1.154], backgroundColor:sC, borderRadius:3 },
+    { label:'공급달성률', data:[0.782,0.724,1.156,1.266,0.759,0.860], backgroundColor:supC, borderRadius:3 }
+  ]}, options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false}, tooltip:{mode:'index',callbacks:{label:ctx=>' '+ctx.dataset.label+': '+(ctx.parsed.y*100).toFixed(1)+'%'}} },
+    scales:{ x:{ticks:{color:tc,font:{size:11}},grid:{color:gc}}, y:{ticks:{color:tc,font:{size:11},callback:v=>(v*100).toFixed(0)+'%'},grid:{color:gc},beginAtZero:true} }
+  }, plugins:[refLine] });
+
+new Chart('pj-turn', { type:'bar', data:{ labels:['매트리스','토퍼','모션','프레임','베개','커버','기타'],
+  datasets:[{ label:'회전율 목표비', data:[-0.09,-0.22,0.32,0.01,0.65,0.07,0.22],
+    backgroundColor:[-0.09,-0.22,0.32,0.01,0.65,0.07,0.22].map(v=>v>=0?tC:supC), borderRadius:3 }]
+  }, options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>' 목표비: '+ctx.parsed.y.toFixed(2)}} },
+    scales:{ x:{ticks:{color:tc,font:{size:11}},grid:{color:gc}}, y:{ticks:{color:tc,font:{size:11}},grid:{color:gc}} }
+  }});
+
+// 편집 기능
+const EDITABLE = ['.ins-title','.ins-body','.evidence','.kpi-label','.kpi-main','.kpi-arrow','.kpi-rate','.kpi-note','.sec-sub','.page-sub','td','th'];
+const originals = new Map();
+
+function saveOriginals() {
+  EDITABLE.forEach(sel => document.querySelectorAll(sel).forEach(el => originals.set(el, el.innerHTML)));
+}
+function applyEditable() {
+  EDITABLE.forEach(sel => document.querySelectorAll(sel).forEach(el => {
+    el.setAttribute('contenteditable','true');
+    el.setAttribute('spellcheck','false');
+  }));
+}
+function resetAll() {
+  if (!confirm('모든 수정 내용을 초기화할까요?')) return;
+  originals.forEach((html, el) => { el.innerHTML = html; });
+}
+function saveHTML() {
+  const clone = document.documentElement.cloneNode(true);
+  clone.querySelectorAll('[contenteditable]').forEach(el => { el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck'); });
+  clone.querySelector('.toolbar')?.remove();
+  clone.querySelector('.edit-hint')?.remove();
+  // 편집 스크립트 블록만 제거 (마지막 script)
+  const scripts = clone.querySelectorAll('script:not([src])');
+  scripts[scripts.length-1]?.remove();
+  const blob = new Blob(['<!DOCTYPE html>\n'+clone.outerHTML], {type:'text/html;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '4월_SCP_리뷰_수정본.html';
+  a.click();
+}
+
+saveOriginals();
+applyEditable();
+</script>
+
 </body></html>
