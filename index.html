@@ -99,7 +99,7 @@
       <div class="kpi-row c4">
         <div class="kpi"><div class="kpi-label">매출</div><div class="kpi-arrow">예측 921 → 실적 936</div><div class="kpi-rate green">달성률 101.6%</div></div>
         <div class="kpi"><div class="kpi-label">공급</div><div class="kpi-arrow">예측 926 → 실적 835</div><div class="kpi-rate red">달성률 90.2%</div></div>
-        <div class="kpi"><div class="kpi-label">재고</div><div class="kpi-arrow">예측 950 → 실적 826</div><div class="kpi-rate green">달성률 87.0%</div></div>
+        <div class="kpi"><div class="kpi-label">재고</div><div class="kpi-arrow">예측 950 → 실적 827</div><div class="kpi-rate green">달성률 87.0%</div></div>
         <div class="kpi"><div class="kpi-label">재고회전율</div><div class="kpi-main">1.13</div><div class="kpi-note">목표대비 +0.17</div></div>
       </div>
       <table>
@@ -152,7 +152,7 @@
           <td class="left">Total</td>
           <td>921</td><td>936</td><td><span class="rate green">101.6%</span></td>
           <td>926</td><td>835</td><td><span class="rate red">90.2%</span></td>
-          <td>950</td><td>826</td><td><span class="rate green">87.0%</span></td>
+          <td>950</td><td>827</td><td><span class="rate green">87.0%</span></td>
           <td>1.13</td><td class="green">+0.17</td><td></td>
         </tr>
       </table>
@@ -198,10 +198,10 @@
         </tr>
         <tr>
           <td class="left"><strong>모션</strong></td>
-          <td>112</td><td>126</td><td><span class="rate green">112.0%</span></td>
+          <td>112</td><td>124</td><td><span class="rate green">109.8%</span></td>
           <td>115</td><td>138</td><td><span class="rate green">119.7%</span></td>
-          <td>104</td><td>109</td><td><span class="rate red">104.6%</span></td>
-          <td>1.16</td><td class="green">+0.08</td>
+          <td>104</td><td>111</td><td><span class="rate red">106.9%</span></td>
+          <td>1.11</td><td class="green">+0.11</td>
           <td class="left">매출·공급 모두 초과. 재고 소폭 증가</td>
         </tr>
         <tr>
@@ -401,7 +401,7 @@ function tog(el){
 }
 const tc='#666',gc='rgba(0,0,0,0.06)',sC='#378ADD',supC='#E24B4A',tC='#5DCAA5';
 const refLine={id:'ref',afterDraw(c){const{ctx,chartArea:{left,right},scales:{y}}=c;if(!y)return;const py=y.getPixelForValue(1);ctx.save();ctx.beginPath();ctx.setLineDash([4,4]);ctx.strokeStyle='#ccc';ctx.lineWidth=1;ctx.moveTo(left,py);ctx.lineTo(right,py);ctx.stroke();ctx.restore();}};
-new Chart('pj-sales',{type:'bar',data:{labels:['매트리스','토퍼','모션','프레임','베개','커버'],datasets:[{label:'매출달성률',data:[0.896,1.101,1.120,0.941,0.972,0.948],backgroundColor:sC,borderRadius:3},{label:'공급달성률',data:[0.690,0.978,1.197,1.000,0.765,0.816],backgroundColor:supC,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',callbacks:{label:ctx=>' '+ctx.dataset.label+': '+(ctx.parsed.y*100).toFixed(1)+'%'}}},scales:{x:{ticks:{color:tc,font:{size:11}},grid:{color:gc}},y:{ticks:{color:tc,font:{size:11},callback:v=>(v*100).toFixed(0)+'%'},grid:{color:gc},beginAtZero:true}}},plugins:[refLine]});
+new Chart('pj-sales',{type:'bar',data:{labels:['매트리스','토퍼','모션','프레임','베개','커버'],datasets:[{label:'매출달성률',data:[0.896,1.101,1.098,0.941,0.972,0.948],backgroundColor:sC,borderRadius:3},{label:'공급달성률',data:[0.690,0.978,1.197,1.000,0.765,0.816],backgroundColor:supC,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',callbacks:{label:ctx=>' '+ctx.dataset.label+': '+(ctx.parsed.y*100).toFixed(1)+'%'}}},scales:{x:{ticks:{color:tc,font:{size:11}},grid:{color:gc}},y:{ticks:{color:tc,font:{size:11},callback:v=>(v*100).toFixed(0)+'%'},grid:{color:gc},beginAtZero:true}}},plugins:[refLine]});
 new Chart('pj-turn',{type:'bar',data:{labels:['매트리스','토퍼','모션','프레임','베개','커버','기타'],datasets:[{label:'회전율 목표비',data:[0.50,0.52,0.08,-0.06,0.10,0.03,0.31],backgroundColor:[0.50,0.52,0.08,-0.06,0.10,0.03,0.31].map(v=>v>=0?tC:supC),borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' 목표비: '+ctx.parsed.y.toFixed(2)}}},scales:{x:{ticks:{color:tc,font:{size:11}},grid:{color:gc}},y:{ticks:{color:tc,font:{size:11}},grid:{color:gc}}}}});
 const EDITABLE=['.ins-title','.ins-body','.evidence','.kpi-label','.kpi-main','.kpi-arrow','.kpi-rate','.kpi-note','.sec-sub','.page-sub','td','th'];
 const originals=new Map();
